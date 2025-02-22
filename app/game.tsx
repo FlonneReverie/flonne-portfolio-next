@@ -19,7 +19,7 @@ export default function Game() {
                 If you hit your tail, or one of the <span className={styles.red}>red</span> ice cubes, you lose!
               </p>
               <p>
-                You can safely travel through the sides of the screen -- you'll end up on the other side!
+                You can safely travel through the sides of the screen -- you&apos;ll end up on the other side!
               </p>
               <p>
                 <strong>Ice Cubes</strong>
