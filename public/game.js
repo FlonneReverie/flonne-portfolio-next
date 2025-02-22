@@ -549,7 +549,6 @@ function keyup(e)
 	if(keysDownArray.indexOf(e.keyCode) >= 0)
 	{
 		arrayRemoveElement(keysDownArray, e.keyCode);
-		arrayRemoveElement(keysDownNow, e.keyCode);
 		keysUpNow.push(e.keyCode);
 	}
 	return false;
