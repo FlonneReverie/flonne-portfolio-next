@@ -223,4 +223,9 @@
     animation-duration: 0.3s;
     right: calc(50% - 45px);
   }
-  
+
+  @media screen and (max-width: 768px) {
+    .demoAnimation {
+        height: 150px;
+    }
+  }

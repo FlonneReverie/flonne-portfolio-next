@@ -18,3 +18,13 @@
     z-index: 1;  
 }
 
+
+@media screen and (max-width: 768px) {
+    .card {
+        height: auto;
+        padding: 16px 10px;
+    }
+    .card h3 {
+        margin-top: 5px;
+    }
+}

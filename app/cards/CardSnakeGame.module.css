@@ -12,3 +12,12 @@
 .gameStartBtn {
     padding: 1px 4px;
 }
+
+@media (max-width: 768px) {
+    .cardImageLeft {
+        position: static;
+        transform: none;
+        display: block;
+        margin: 0 auto 8px auto;
+    }
+}
