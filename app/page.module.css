@@ -1,0 +1,79 @@
+.page {
+  text-align: center;
+  max-width: 1024px;
+  margin: 0 auto;
+  font-family: var(--font-ubuntu-regular);
+}
+
+.page h1 {
+  margin: 28px 0 10px 0;
+  font-family: var(--font-dtm-sans);
+  text-transform: uppercase;
+  font-size: 32pt;
+  font-weight: normal;
+
+}
+
+.page h2 {
+  margin-bottom: 14px;
+  font-family: var(--font-dtm-sans);
+  font-size: 24pt;
+  font-weight: normal;
+}
+
+.page p {
+  margin: 16px 0;
+}
+
+.flagImg {
+  margin: 0 2px;
+}
+
+.footer {
+  margin-bottom: 8px;
+}
+
+.cvLink {
+  font-size: 15pt;
+  text-decoration: underline;
+  color: #00e;
+}
+
+.cvLink:visited {
+  color: #551a8b;
+}
+
+.cvLink:active {
+  color: #f00; 
+}
+
+.currentStatus {
+  font-style: italic;
+}
+
+.githubSection {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  padding: 4px;
+  display: block;
+  box-shadow: #000 2px 2px 4px;
+}
+
+@media screen and (max-width: 768px) {
+  .page {
+    margin: 0 8px;
+  }
+  .githubSection {
+    position: static;
+    border: none;
+    margin: 8px 0 0 0;
+  }
+}
+
+.nextLogo {
+  margin: 8px 0;
+}

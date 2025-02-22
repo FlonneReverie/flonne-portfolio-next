@@ -1,0 +1,14 @@
+
+.cardImageLeft {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    width: 100px;
+    height: 100px;
+}
+
+.gameStartBtn {
+    padding: 1px 4px;
+}

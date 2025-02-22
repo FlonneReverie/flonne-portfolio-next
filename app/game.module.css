@@ -1,0 +1,77 @@
+.gameSection {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+
+.gameContainer {
+    overflow: hidden;
+    margin: auto;
+    padding: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-ubuntu-regular);
+    font-size: 22px;
+    color: rgb(0, 0, 0);
+    line-height: 31px;
+    outline: none !important;
+}
+
+.gameTitlePage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 12%;
+    display: none;
+}
+
+.gameTitleMargin {
+    margin: 8px 8px 0px 8px;
+}
+
+.gameTitleLine {
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.gameScoreBox {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2em;
+    color: rgb(112, 112, 112);
+    margin-left: 8px;
+    margin-top: 6px;
+}
+
+.gameStartBtn {
+    margin-top: 10px;
+}
+
+.gameExitBtn {
+    z-index: 101;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 24px;
+    padding: 1px 4px;
+}
+
+.gameDpad {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.8;
+    display: none;
+}
+
+.twoEmSized {
+    width: 2em;
+    height: 2em;
+}

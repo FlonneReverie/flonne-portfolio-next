@@ -1,0 +1,226 @@
+.demoAnimation {
+    background-image: url(/animbg.webp);
+    background-repeat: repeat-x;
+    animation-name: animDemoBg;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+  }
+  
+  .page.hired .demoAnimation {
+    animation-play-state: paused;
+  }
+  
+  @keyframes animDemoBg {
+      0% {
+          background-position: 0 0.5px;
+      }
+      50% {
+          background-position-y: -0.5px;
+      }
+      100% {
+          background-position: -32px 0.5px;
+      }
+  }
+  
+  @keyframes animDemoTxtIdle {
+    0% {
+        top: 28%;
+    }
+    20% {
+        top: calc(28% - 2px);
+    }
+    40% {
+        top: calc(28% - 4px);
+    }
+    60% {
+        top: calc(28% - 2px);
+    }
+    80% {
+        top: calc(28% + 2px);
+    }
+    100% {
+        top: 28%;
+    }
+  }
+  
+  @keyframes animDemoTxtLeft {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-15deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+  }
+  
+  @keyframes animDemoTxtRight {
+    0% {
+        transform: rotateY(0) rotateZ(5deg);
+    }
+    50% {
+        transform: rotateY(-30deg) rotateZ(5deg);
+    }
+    100% {
+        transform: rotateY(0) rotateZ(5deg);
+    }
+  }
+  
+  .demoAnimation h3 {
+    top: 28%;
+    animation-name: animDemoTxtIdle;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+  
+  }
+  
+  .demoAnimation .demoAnimationText1 {
+    display: inline-block;
+    animation-name: animDemoTxtLeft;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes carrot {
+    0% {
+        transform: rotateZ(15deg) rotateY(-25deg) rotateX(10deg);
+        top: 2px;
+    }
+    50% {
+        transform: rotateZ(-12deg) rotateY(30deg) rotateX(-10deg);
+        top: 0;
+    }
+    100% {
+        transform: rotateZ(15deg) rotateY(-25deg) rotateX(-5deg);
+        top: 2px;
+    }
+  }
+  
+  .demoAnimation .demoAnimationCarrot {
+    transform:rotateZ(0deg);
+    animation-name: carrot;
+    animation-duration: 1.667s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-direction: alternate;
+    position: relative;
+    left: 2px;
+    top: 2px;
+  }
+  
+  .page.hired .demoAnimation .demoAnimationCarrot {
+    animation-name: none;
+    transform: scaleX(-1) rotateZ(30deg);
+    top: auto;
+    left: auto;
+    right: 50%;
+    bottom: 20px;
+    position: absolute;
+  }
+  
+  .demoAnimation .demoAnimationText2 {
+    display: inline-block;
+    animation-name: animDemoTxtRight;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+  }
+  
+  @keyframes bunnyHop {
+    0% {
+        background-position-x: 0;
+    }
+    2.5% {
+        background-position-x: 144px;
+    }
+    5% {
+        background-position-x: 216px;
+    }
+    47.5% {
+        background-position-x: 144px;
+    }
+    50% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 0;
+    }
+  }
+  
+  @keyframes bunnyNom {
+    0% {
+        background-position-x: 0;
+    }
+    50% {
+        background-position-x: 72px;
+    }
+    100% {
+        background-position-x: 0;
+    }
+  }
+  
+  @keyframes bunnyMove {
+    0% {
+        right: calc(50% - 45px);
+        bottom: 0;
+    }
+    5% {
+        right: calc(50% - 45px);
+        bottom: 0;
+    }
+    20% {
+        right: calc(50% + 4px);
+        bottom: 33px;
+    }
+    25% {
+        right: calc(50% + 5px);
+        bottom: 35px;
+    }
+    35% {
+        right: calc(50% + 11px);
+        bottom: 26px;
+    }
+    40% {
+        right: calc(50% + 13px);
+        bottom: 20px;
+    }
+    45% {
+        right: calc(50% + 16px);
+        bottom: 10px;
+    }
+    50% {
+        right: calc(50% + 16px);
+        bottom: 0;
+    }
+    100% {
+        right: calc(50% - 45px);
+        bottom: 0;
+    }
+  }
+  
+  .demoAnimationBunny {
+    background-image: url(/bunny.webp);
+    width: 72px;
+    height: 72px;
+    background-position-x: 0;
+    animation-name: bunnyHop, bunnyMove;
+    animation-duration: 3s, 3s;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running;
+    animation-timing-function: steps(1, end), cubic-bezier(.74,.66,.22,.25);
+    position: absolute;
+    right: 50%;
+    bottom: 0px;
+  }
+  
+  .page.hired .demoAnimationBunny {
+    animation-name: bunnyNom;
+    animation-duration: 0.3s;
+    right: calc(50% - 45px);
+  }
+  
