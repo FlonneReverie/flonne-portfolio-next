@@ -7,3 +7,12 @@
     width: 100px;
     height: 100px;
 }
+
+@media (max-width: 768px) {
+    .cardImageRight {
+        position: static;
+        transform: none;
+        display: block;
+        margin: 0 auto;
+    }
+}
