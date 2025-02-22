@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Script from "next/script";
 import styles from "./game.module.css";
 
 export default function Game() {
   return (
     <div className={styles.gameSection} id="gameSection">
-        <img className={styles.gameDpad} id="gameDpad" src="/gameassets/dpad.png" />
+        <Image className={styles.gameDpad} alt="D-pad" id="gameDpad" src="/gameassets/dpad.png" />
         <div className={styles.gameContainer} id="gameContainer">
           <button className={styles.gameExitBtn} id="gameExitBtn">Back to Portfolio</button>
           <div id="javascriptWarning"></div>
@@ -23,9 +24,9 @@ export default function Game() {
               <p>
                 <strong>Ice Cubes</strong>
               </p>
-              <img src="/gameassets/blockblue.png" alt="Blue ice block" className={styles.twoEmSized} /> 5 Points&nbsp;&nbsp;&nbsp;<img src="/gameassets/blockyellow.png" alt="Yellow ice block" className={styles.twoEmSized} /> 10 Points
+              <Image src="/gameassets/blockblue.png" alt="Blue ice block" className={styles.twoEmSized} /> 5 Points&nbsp;&nbsp;&nbsp;<Image src="/gameassets/blockyellow.png" alt="Yellow ice block" className={styles.twoEmSized} /> 10 Points
               <br />
-              <img src="/gameassets/blockpurple.png" alt="Purple ice block" className={styles.twoEmSized} /> 15 Points&nbsp;&nbsp;&nbsp;<img src="/gameassets/blockrainbow.png" alt="Rainbow ice block" className={styles.twoEmSized} /> 20 Points!
+              <Image src="/gameassets/blockpurple.png" alt="Purple ice block" className={styles.twoEmSized} /> 15 Points&nbsp;&nbsp;&nbsp;<Image src="/gameassets/blockrainbow.png" alt="Rainbow ice block" className={styles.twoEmSized} /> 20 Points!
               <p>
                 <strong>Press any direction to begin!</strong>
               </p>
