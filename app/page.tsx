@@ -11,7 +11,7 @@ export default function Home() {
     <div className={styles.page}>
       <div id="mainContent">
         <main className={styles.main}>
-          <a href="https://github.com/" className={styles.githubSection} target="_blank">
+          <a href="https://github.com/FlonneReverie/flonne-portfolio-next" className={styles.githubSection} target="_blank">
             <Image
               src="/github-mark.svg"
               width="48" height="48"
