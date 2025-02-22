@@ -5,7 +5,7 @@ import styles from "./game.module.css";
 export default function Game() {
   return (
     <div className={styles.gameSection} id="gameSection">
-        <Image className={styles.gameDpad} alt="D-pad" id="gameDpad" src="/gameassets/dpad.png" />
+        <Image className={styles.gameDpad} width="125" height="127" alt="D-pad" id="gameDpad" src="/gameassets/dpad.png" />
         <div className={styles.gameContainer} id="gameContainer">
           <button className={styles.gameExitBtn} id="gameExitBtn">Back to Portfolio</button>
           <div id="javascriptWarning"></div>
@@ -24,9 +24,9 @@ export default function Game() {
               <p>
                 <strong>Ice Cubes</strong>
               </p>
-              <Image src="/gameassets/blockblue.png" alt="Blue ice block" className={styles.twoEmSized} /> 5 Points&nbsp;&nbsp;&nbsp;<Image src="/gameassets/blockyellow.png" alt="Yellow ice block" className={styles.twoEmSized} /> 10 Points
+              <Image src="/gameassets/blockblue.png" width="86" height="86" alt="Blue ice block" className={styles.twoEmSized} /> 5 Points&nbsp;&nbsp;&nbsp;<Image src="/gameassets/blockyellow.png" width="86" height="86" alt="Yellow ice block" className={styles.twoEmSized} /> 10 Points
               <br />
-              <Image src="/gameassets/blockpurple.png" alt="Purple ice block" className={styles.twoEmSized} /> 15 Points&nbsp;&nbsp;&nbsp;<Image src="/gameassets/blockrainbow.png" alt="Rainbow ice block" className={styles.twoEmSized} /> 20 Points!
+              <Image src="/gameassets/blockpurple.png" width="86" height="86" alt="Purple ice block" className={styles.twoEmSized} /> 15 Points&nbsp;&nbsp;&nbsp;<Image src="/gameassets/blockrainbow.png" width="86" height="86" alt="Rainbow ice block" className={styles.twoEmSized} /> 20 Points!
               <p>
                 <strong>Press any direction to begin!</strong>
               </p>
