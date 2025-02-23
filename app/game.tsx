@@ -11,9 +11,9 @@ export default function Game() {
           <div id="javascriptWarning"></div>
           <div className={styles.gameTitlePage} id="gameTitlePage">
             <div className={styles.gameTitleMargin} id="gameTitleMargin">
-              <div className={styles.gameTitleLine} id="gameTitleLine"><strong>Ice Snake</strong></div>
+              <div className={styles.gameTitleLine} id="gameTitleLine"><strong>Icy Snake</strong></div>
               <p>
-                Use the arrow keys (desktop) or touch the d-pad (mobile) to direct the ice snake into the ice cubes.
+                Use the arrow keys (desktop) or touch the d-pad (mobile) to direct the icy snake into the ice cubes.
               </p>
               <p>
                 If you hit your tail, or one of the <span className={styles.red}>red</span> ice cubes, you lose!

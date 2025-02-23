@@ -27,10 +27,6 @@ var DEFAULT_GAME_HEIGHT = 720; //Default canvas height in pixels.
 var GAME_WIDTH = DEFAULT_GAME_WIDTH; //Canvas width in pixels.
 var GAME_HEIGHT = DEFAULT_GAME_HEIGHT; //Canvas height in pixels.
 var GAME_FRAMERATE = 10; //Frames per second. gameLoop() is called this many times per second while the game plays.
-var GAME_DEFAULT_FONT = 'Arial, Helvetica, sans-serif'; //The game's default font, in CSS font-family syntax.
-var GAME_DEFAULT_FONT_SIZE = 13; //The game's default font size, in pixels.
-var GAME_DEFAULT_FONT_COLOR = '#000000'; //The game's default font color, using CSS color definitions.
-var GAME_DEFAULT_LINE_HEIGHT = 17; //The game's default text line height, in pixels.
 
 //Define input buffers. Used to detect inputs during gameLoop().
 var keysDownArray = [];
