@@ -43,7 +43,7 @@ export default function Home() {
             <a className={styles.cvLink} href="/files/flonne-reverie-resume-2025-rev2.pdf" target="_blank">View Resumé / CV</a>
           </p>
           <p className={styles.currentStatus}>
-              Currently seeking full-remote roles in Portugal! 🇵🇹 (Already a legal resident!)
+              Currently seeking hybrid/remote roles in Portugal! 🇵🇹 (Already a legal resident!)
           </p>
           <p>
               Please allow me to demonstrate a little bit of what I can do:
