@@ -46,6 +46,7 @@ var preloadImages =
 	gameover: 'gameassets/gameover.webp'
 };
 
+var initAudioSfx = new Audio('gameassets/silence-initaudio.mp3');
 var gameOverSfx = new Audio('gameassets/gameover.mp3');
 var eatSfx = new Audio('gameassets/eat.mp3');
 
@@ -504,6 +505,9 @@ function startGame()
 	
 	//Now create a new gameInterval.
 	gameInterval = setInterval(internalFrame, 1000.0/GAME_FRAMERATE);
+
+	//Play the silent init-audio sound (some systems need a moment to init audio, ensures all the game audio can be heard!)
+	initAudioSfx.play();
 }
 
 function pauseGame()
