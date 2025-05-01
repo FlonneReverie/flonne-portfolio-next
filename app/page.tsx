@@ -37,7 +37,7 @@ export default function Home() {
             title="Transgender"
           />
           <p>
-            Hello! My name is Flonne Reverie. I&apos;m a computer programmer and Senior Web Developer with 8+ years of full-stack experience!
+            Hello! My name is Flonne Reverie. I&apos;m a computer programmer and full-stack web developer with 8+ years of experience!
           </p>
           <p>
             <a className={styles.cvLink} href="/files/flonne-reverie-resume-2025-rev2.pdf" target="_blank">View Resumé / CV</a>
