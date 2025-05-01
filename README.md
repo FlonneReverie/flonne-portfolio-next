@@ -2,7 +2,7 @@ This is Flonne Reverie's web portfolio, created using [React](https://react.dev/
 
 ## View Online
 
-This portfolio can be viewed online [HERE](https://flonne.pet/)!
+This portfolio can be viewed online [HERE](https://flonne.dev/)!
 
 ## Local Development
 
