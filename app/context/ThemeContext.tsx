@@ -21,9 +21,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   // Read theme from localStorage or system/browser preference
   useEffect(() => {
-    const stored = localStorage.getItem('theme') === "1";
+    const storedValue = localStorage.getItem('theme');
     const system = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = stored || system;
+    const initial = (storedValue !== null ? storedValue === "1" : system);
     setIsDarkTheme(initial);
   }, []);
 
