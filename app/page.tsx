@@ -74,7 +74,7 @@ export default function Home() {
           /> React and <br />
           <Image
             className={styles.nextLogo}
-            src="/next.svg"
+            src={isDarkTheme ? "/next-darkmode.svg" : "/next.svg"}
             width="196" height="40"
             alt="Next.js Logo"
             title="Next.js"
