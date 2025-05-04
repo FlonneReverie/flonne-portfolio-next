@@ -1,15 +1,15 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --linkDefault: #0000ee;
-  --subheading: #686868;
-}
-
-.dark {
   --background: #171717;
   --foreground: #ffffff;
   --linkDefault: #a8f2ff;
   --subheading: #cccccc;
+}
+
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+  --linkDefault: #0000ee;
+  --subheading: #686868;
 }
 
 html,

@@ -15,7 +15,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   function setIsDarkTheme(isDark : boolean) : void {
     setIsDarkThemeInternal(isDark);
-    document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
+    document.documentElement.classList[isDark ? 'remove' : 'add']('light');
     localStorage.setItem('theme', isDark ? "1" : "0");
   }
 
