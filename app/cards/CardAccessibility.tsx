@@ -4,12 +4,16 @@ import styles from "./CardAccessibility.module.css";
 import Card from '../card';
 
 
-export default function CardAccessibility() {
+export default function CardAccessibility({
+  isDarkTheme
+  }: {
+    isDarkTheme: boolean;
+  }) {
   return (
     <Card>
         <h3>Accessibility / ARIA</h3>
         <Image
-            className={styles.cardImageRight}
+            className={`${styles.cardImageRight} ${isDarkTheme ? styles.imageDarkMode : ''}`}
             src="/aria.webp"
             width="100"
             height="100"

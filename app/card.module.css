@@ -14,8 +14,15 @@
   .card h3 {
     font-size: 23pt;
     margin: 18px 0;
-    color: #686868;
-    z-index: 1;  
+    color: var(--subheading);
+    z-index: 1;
+    transition: color 200ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card h3 {
+        transition: none !important;
+    }
 }
 
 

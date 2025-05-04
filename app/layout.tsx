@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
 import "./globals.css";
+
+import { ThemeProvider } from './context/ThemeContext';
 
 const dtmSans = localFont({
   src: '/DTM-Sans.otf',
@@ -23,10 +26,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${dtmSans.variable} ${ubuntuRegular.variable}`}>
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={`${dtmSans.variable} ${ubuntuRegular.variable}`}>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
   );
 }

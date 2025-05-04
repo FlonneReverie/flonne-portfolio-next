@@ -4,12 +4,16 @@ import styles from "./CardSnakeGame.module.css";
 import Card from '../card';
 
 
-export default function CardSnakeGame() {
+export default function CardSnakeGame({
+  isDarkTheme
+  }: {
+    isDarkTheme: boolean;
+  }) {
   return (
     <Card>
         <h3>Advanced Javascript and Interactivity</h3>
         <Image
-            className={styles.cardImageLeft}
+            className={`${styles.cardImageLeft} ${isDarkTheme ? styles.imageDarkMode : ''}`}
             src="/js.svg"
             width="100"
             height="100"

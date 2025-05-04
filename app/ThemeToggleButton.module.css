@@ -1,0 +1,78 @@
+
+/* Adapted from https://toggles.dev/classic */
+
+.themeToggleContainer {
+  display: inline-block;
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 48px;
+  height: 48px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #808080;
+  border-radius: 50%;
+  font-size: 36px;
+  padding: 5px 3px 0 3px;
+}
+
+@media screen and (max-width: 768px) {
+  .themeToggleContainer {
+    position: static;
+    margin: 8px 0 4px 0;
+  }
+}
+
+.themeToggle {
+  --theme-toggle__classic--duration: 500ms;
+}
+.themeToggleClassic path {
+  transition-timing-function: cubic-bezier(0, 0, 0.15, 1.25);
+  transform-origin: center;
+  transition-duration: calc(var(--theme-toggle__classic--duration) * 0.8);
+}
+.themeToggleClassic g path {
+  transition-property: opacity, transform;
+  transition-delay: calc(var(--theme-toggle__classic--duration) * 0.2);
+}
+.themeToggleClassic :first-child path {
+  transition-property: transform, d;
+}
+
+.themeToggle--toggled:not(label).themeToggle .themeToggleClassic g path,
+.themeToggle input[type=checkbox]:checked ~ .themeToggleClassic g path {
+  transform: scale(0.5) rotate(45deg);
+  opacity: 0;
+  transition-delay: 0s;
+}
+.themeToggle--toggled:not(label).themeToggle .themeToggleClassic :first-child path,
+.themeToggle input[type=checkbox]:checked ~ .themeToggleClassic :first-child path {
+  d: path("M-12 5h30a1 1 0 0 0 9 13v24h-39Z");
+  transition-delay: calc(var(--theme-toggle__classic--duration) * 0.2);
+}
+
+.themeToggle {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.themeToggle input[type=checkbox] {
+  display: none;
+}
+.themeToggle .themeToggle-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .themeToggle:not(.themeToggle--force-motion) * {
+    transition: none !important;
+  }
+}

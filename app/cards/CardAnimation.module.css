@@ -1,11 +1,22 @@
 .demoAnimation {
     background-image: url(/animbg.webp);
+    transition: background-image 200ms;
     background-repeat: repeat-x;
     animation-name: animDemoBg;
     animation-iteration-count: infinite;
     animation-duration: 1s;
     animation-timing-function: linear;
     animation-direction: reverse;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .demoAnimation {
+      transition: none !important;
+    }
+  }
+
+  .demoDarkMode {
+    background-image: url(/animbg-dark.webp);
   }
   
   .page.hired .demoAnimation {

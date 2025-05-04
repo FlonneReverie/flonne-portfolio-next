@@ -4,9 +4,13 @@ import styles from "./CardAnimation.module.css";
 import Card from '../card';
 
 
-export default function CardAnimation() {
+export default function CardAnimation({
+  isDarkTheme
+  }: {
+    isDarkTheme: boolean;
+  }) {
   return (
-    <Card className={styles.demoAnimation}>
+    <Card className={`${styles.demoAnimation} ${isDarkTheme ? styles.demoDarkMode : ''}`}>
         <h3>
             <span className={styles.demoAnimationText1}>CSS</span>
             {" "}
@@ -25,4 +29,3 @@ export default function CardAnimation() {
     </Card>
   );
 }
-

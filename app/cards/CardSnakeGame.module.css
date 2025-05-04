@@ -7,6 +7,11 @@
     z-index: -1;
     width: 100px;
     height: 100px;
+    border-radius: 16px;
+}
+
+.imageDarkMode {
+    background-color: #eee;
 }
 
 .gameStartBtn {

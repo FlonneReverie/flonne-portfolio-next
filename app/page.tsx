@@ -1,5 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./page.module.css";
+
+import { useTheme } from "./context/ThemeContext";
+import ThemeToggleButton from "./ThemeToggleButton";
+
 import CardAccessibility from "./cards/CardAccessibility";
 import CardAnimation from "./cards/CardAnimation";
 import CardEyeCandy from "./cards/CardEyeCandy";
@@ -7,8 +13,12 @@ import CardSnakeGame from "./cards/CardSnakeGame";
 import Game from "./game";
 
 export default function Home() {
+
+  const {isDarkTheme, setIsDarkTheme} = useTheme();
+
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${isDarkTheme ? styles.darkMode : ''}`}>
+      <ThemeToggleButton isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
       <div id="mainContent">
         <main className={styles.main}>
           <a href="https://github.com/FlonneReverie/flonne-portfolio-next" className={styles.githubSection} target="_blank">
@@ -17,8 +27,9 @@ export default function Home() {
               width="48" height="48"
               alt="GitHub Logo"
               title="View code on GitHub"
-            /><br />
-            View code on GitHub &gt;
+              className={styles.githubLogo}
+            />
+            <div>View code on GitHub &gt;</div>
           </a>
           <h1>Flonne Reverie</h1>
           <h2>Web Developer &bull; Full-Stack</h2>
@@ -48,10 +59,10 @@ export default function Home() {
           <p>
               Please allow me to demonstrate a little bit of what I can do:
           </p>
-          <CardAnimation />
-          <CardSnakeGame />
+          <CardAnimation isDarkTheme={isDarkTheme} />
+          <CardSnakeGame isDarkTheme={isDarkTheme} />
           <CardEyeCandy />
-          <CardAccessibility />
+          <CardAccessibility isDarkTheme={isDarkTheme} />
         </main>
         <footer className={styles.footer}>
           Made using{" "}

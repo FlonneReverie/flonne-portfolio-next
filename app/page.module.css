@@ -36,7 +36,6 @@
 .cvLink {
   font-size: 15pt;
   text-decoration: underline;
-  color: #00e;
 }
 
 .cvLink:visited {
@@ -70,7 +69,12 @@
   .githubSection {
     position: static;
     border: none;
-    margin: 8px 0 0 0;
+    margin: 12px 0 0 0;
+    padding: 8px 12px;
+    display: inline-block;
+  }
+  .githubLogo {
+    display: none;
   }
 }
 

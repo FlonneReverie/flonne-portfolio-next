@@ -89,10 +89,10 @@
 .rainbowBtn {
     position: relative;
     overflow: hidden;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 1.0);
     font-size: 1em;
     text-shadow: #fff 1px 1px;
-    transition: box-shadow 0.15s ease-in-out, color 0.3s, font-size 0.2s, text-shadow 0.3s;
+    transition: box-shadow 0.15s ease-in-out, color 0.3s, font-size 0.2s, text-shadow 0.3s, background-color 0.3s;
 }
 
 .rainbowBtn::before {
@@ -131,6 +131,7 @@
 .rainbowBtn:hover, .rainbowBtn:focus {
     color: #fff;
     text-shadow: #000 1px 1px;
+    background-color: rgba(255, 255, 255, 0.0);
 }
 
 .rainbowBtn:hover::before, .rainbowBtn:focus::before {
