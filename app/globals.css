@@ -2,6 +2,7 @@
   --background: #171717;
   --foreground: #ffffff;
   --linkDefault: #a8f2ff;
+  --linkHover: #e188ff;
   --subheading: #cccccc;
 }
 
@@ -9,6 +10,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --linkDefault: #0000ee;
+  --linkHover: #a710ff;
   --subheading: #686868;
 }
 
@@ -27,12 +29,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body {
-    transition: none !important;
-  }
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -42,4 +38,18 @@ body {
 a {
   color: var(--linkDefault);
   text-decoration: none;
+  transition: color 0.075s linear;
+}
+
+a:hover, a:focus {
+  color: var(--linkHover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none !important;
+  }
+  a {
+    transition: none !important;
+  }
 }

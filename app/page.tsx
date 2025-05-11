@@ -8,6 +8,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 
 import CardAccessibility from "./cards/CardAccessibility";
 import CardAnimation from "./cards/CardAnimation";
+import CardBackend from "./cards/CardBackend";
 import CardEyeCandy from "./cards/CardEyeCandy";
 import CardSnakeGame from "./cards/CardSnakeGame";
 import Game from "./game";
@@ -56,30 +57,35 @@ export default function Home() {
           <p className={styles.currentStatus}>
               Currently seeking hybrid/remote roles from Porto, Portugal! 🇵🇹 (Already a legal resident!)
           </p>
-          <p>
+          <p className={styles.outro}>
               Please allow me to demonstrate a little bit of what I can do:
           </p>
           <CardAnimation isDarkTheme={isDarkTheme} />
           <CardSnakeGame isDarkTheme={isDarkTheme} />
+          <CardBackend />
           <CardEyeCandy />
           <CardAccessibility isDarkTheme={isDarkTheme} />
         </main>
         <footer className={styles.footer}>
           Made using{" "}
-          <Image
-            src="/react.svg"
-            width="24" height="24"
-            alt="React Logo"
-            title="React"
-          /> React and <br />
-          <Image
-            className={styles.nextLogo}
-            src={isDarkTheme ? "/next-darkmode.svg" : "/next.svg"}
-            width="196" height="40"
-            alt="Next.js Logo"
-            title="Next.js"
-          /><br />
-          (The bunny gets the carrot if you hire me~)
+          <a href="https://react.dev/" rel="nofollow noreferrer" target="_blank">
+            <Image
+              src="/react.svg"
+              width="24" height="24"
+              alt="React Logo"
+              title="React"
+            /> React
+          </a> and <br />
+          <a href="https://nextjs.org/" rel="nofollow noreferrer" target="_blank">
+            <Image
+              className={styles.nextLogo}
+              src={isDarkTheme ? "/next-darkmode.svg" : "/next.svg"}
+              width="196" height="40"
+              alt="Next.js Logo"
+              title="Next.js"
+            />
+          </a>
+          <p>(The bunny gets the carrot if you hire me~)</p>
         </footer>
       </div>
       <Game />

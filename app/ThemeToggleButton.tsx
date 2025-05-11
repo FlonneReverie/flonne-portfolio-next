@@ -10,10 +10,28 @@ export default function ThemeToggleButton({
     isDarkTheme: boolean;
     setIsDarkTheme: (isDark: boolean) => void;
   }) {
+
+  function toggleTheme() : void {
+    setIsDarkTheme(!isDarkTheme);
+  }
+
   return (
     <div className={styles.themeToggleContainer}>
-      <label className={styles.themeToggle} title={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}>
-        <input type="checkbox" checked={isDarkTheme} onChange={() => {setIsDarkTheme(!isDarkTheme)}} />
+      <label
+        tabIndex={0}
+        className={styles.themeToggle}
+        title={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
+        role="button"
+        onChange={toggleTheme}
+        onKeyDown={(evt) => {
+          if(evt.key === 'Enter' || evt.key === ' ') {
+            toggleTheme();
+            return false;
+          }
+          return true;
+        }}
+      >
+        <input type="checkbox" aria-hidden="true" checked={isDarkTheme} readOnly />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"

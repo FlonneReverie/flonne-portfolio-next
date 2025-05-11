@@ -35,19 +35,26 @@
 
 .cvLink {
   font-size: 15pt;
-  text-decoration: underline;
 }
 
-.cvLink:visited {
-  color: #551a8b;
+.cvLink::before {
+  content: '{';
+  font-size: 24pt;
+  margin-right: 10px;
 }
 
-.cvLink:active {
-  color: #f00; 
+.cvLink::after {
+  content: '}';
+  font-size: 24pt;
+  margin-left: 10px;
 }
 
 .currentStatus {
   font-style: italic;
+}
+
+.page p.outro {
+  margin-bottom: 32px;
 }
 
 .githubSection {

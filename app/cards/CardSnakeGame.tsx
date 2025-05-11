@@ -20,7 +20,7 @@ export default function CardSnakeGame({
             alt="Javascript Logo"
         />
         <p>
-            <button className={styles.gameStartBtn} id="gameStartBtn">Click here</button> to play a game I wrote based on &quot;Snake&quot;!
+            <button className={styles.gameStartBtn} id="gameStartBtn">Click here</button> to play a game I wrote in vanilla Javascript based on &quot;Snake&quot;!
         </p>
     </Card>
   );
