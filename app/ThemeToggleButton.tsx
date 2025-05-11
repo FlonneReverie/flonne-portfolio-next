@@ -18,6 +18,8 @@ export default function ThemeToggleButton() {
         tabIndex={0}
         className={styles.themeToggle}
         title={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
+        aria-label={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
+        aria-pressed={!isDarkTheme}
         role="button"
         onChange={toggleTheme}
         onKeyDown={(evt) => {

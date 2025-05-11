@@ -35,6 +35,7 @@
 
 .cvLink {
   font-size: 15pt;
+  text-decoration: none;
 }
 
 .cvLink::before {
@@ -67,6 +68,7 @@
   padding: 4px;
   display: block;
   box-shadow: #000 2px 2px 4px;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 768px) {
