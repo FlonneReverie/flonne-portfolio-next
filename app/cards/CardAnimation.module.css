@@ -245,6 +245,10 @@
     right: 50%;
     bottom: 0px;
   }
+
+  .demoDarkMode .demoAnimationBunny {
+    filter: brightness(80%);
+  }
   
   .page.hired .demoAnimationBunny {
     animation-name: bunnyNom;
