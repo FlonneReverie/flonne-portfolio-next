@@ -9,8 +9,10 @@ export default function CardAnimation() {
 
   const {isDarkTheme, isReducedMotion} = useTheme();
 
+  const hired = false; // Please~?
+
   return (
-    <Card className={`${styles.demoAnimation} ${isDarkTheme ? styles.demoDarkMode : ''} ${isReducedMotion ? styles.reducedMotion : ''}`}>
+    <Card className={`${styles.demoAnimation} ${isDarkTheme ? styles.demoDarkMode : ''} ${isReducedMotion ? styles.reducedMotion : ''} ${hired ? styles.hired : ''}`}>
         <h3>
             <span className={styles.demoAnimationText1}>CSS</span>
             {" "}

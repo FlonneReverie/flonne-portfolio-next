@@ -36,7 +36,7 @@
     color: var(--foreground);
   }
   
-  .page.hired .demoAnimation {
+  .demoAnimation.hired {
     animation-play-state: paused !important;
   }
   
@@ -141,7 +141,7 @@
     top: 2px;
   }
   
-  .page.hired .demoAnimation .demoAnimationCarrot {
+  .demoAnimation.hired .demoAnimationCarrot {
     animation-name: none;
     transform: scaleX(-1) rotateZ(30deg);
     top: auto;
@@ -250,7 +250,7 @@
     filter: brightness(80%);
   }
   
-  .page.hired .demoAnimationBunny {
+  .demoAnimation.hired .demoAnimationBunny {
     animation-name: bunnyNom;
     animation-duration: 0.3s;
     right: calc(50% - 45px);
