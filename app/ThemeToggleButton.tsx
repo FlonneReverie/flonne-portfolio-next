@@ -19,18 +19,19 @@ export default function ThemeToggleButton() {
         className={styles.themeToggle}
         title={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
         aria-label={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
-        aria-pressed={!isDarkTheme}
-        role="button"
-        onChange={toggleTheme}
+        aria-checked={!isDarkTheme}
+        role="switch"
+        onClick={toggleTheme}
         onKeyDown={(evt) => {
           if(evt.key === 'Enter' || evt.key === ' ') {
             toggleTheme();
+            evt.preventDefault();
             return false;
           }
           return true;
         }}
       >
-        <input type="checkbox" aria-hidden="true" checked={isDarkTheme} readOnly />
+        <input type="checkbox" aria-hidden="true" checked={isDarkTheme} disabled />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
