@@ -22,7 +22,7 @@ export default function Home() {
       <ThemeToggleButton />
       <div id="mainContent">
         <main className={styles.main}>
-          <a href="https://github.com/FlonneReverie/flonne-portfolio-next" className={styles.githubSection} target="_blank">
+          <a href="https://github.com/FlonneReverie/flonne-portfolio-next" className={styles.githubSection} target="_blank" aria-label="View this portfolio's code on GitHub in a new tab">
             <Image
               src="/github-mark.svg"
               width="48" height="48"
@@ -52,7 +52,7 @@ export default function Home() {
             Hello! My name is Flonne Reverie. I&apos;m a computer programmer and full-stack web developer with 8+ years of experience!
           </p>
           <p>
-            <a className={styles.cvLink} href="/files/flonne-reverie-cv-2025-rev4.pdf" target="_blank">Check out my CV!</a>
+            <a className={styles.cvLink} href="/files/flonne-reverie-cv-2025-rev4.pdf" target="_blank" aria-label="View my CV in a new tab">Check out my CV!</a>
           </p>
           <p className={styles.currentStatus}>
               Currently seeking hybrid/remote roles from Porto, Portugal! 🇵🇹 (Already a legal resident!)
@@ -68,7 +68,7 @@ export default function Home() {
         </main>
         <footer className={styles.footer}>
           Made using{" "}
-          <a href="https://react.dev/" rel="nofollow noreferrer" target="_blank">
+          <a href="https://react.dev/" rel="nofollow noreferrer" target="_blank" aria-label="Visit React website in a new tab">
             <Image
               src="/react.svg"
               width="24" height="24"
@@ -76,7 +76,7 @@ export default function Home() {
               title="React"
             /> React
           </a> and <br />
-          <a href="https://nextjs.org/" rel="nofollow noreferrer" target="_blank">
+          <a href="https://nextjs.org/" rel="nofollow noreferrer" target="_blank" aria-label="Visit Next.js website in a new tab">
             <Image
               className={styles.nextLogo}
               src={isDarkTheme ? "/next-darkmode.svg" : "/next.svg"}
