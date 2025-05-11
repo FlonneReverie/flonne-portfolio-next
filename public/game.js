@@ -10,30 +10,30 @@
 */
 
 
-var gameContainer; //The element with ID "gameContainer". The game canvas is appended to this.
-var gameTitlePage; //The element with ID "gameTitlePage". An overlay that displays the title, instructions, etc.
-var gameCanvas; //The HTML5 canvas object (created later)
-var gameContext; //Set to gameCanvas.getContext('2d') later, used for drawing 2D images/shapes.
-var gameInterval = null; //Used to keep track of the game's running state. Set by startGame().
-var gameInitialized = false; //Set to true when startGame() is executed for the first time.
-var gameData = {}; //Filled with things this particular game needs to run.
-var gameScore = 0; //The score that will ultimately be submitted. Modified by the game itself.
-var gameOver = false; //Set to true when the player loses.
-var gameShowingTitleScreen = true; //Set to false when the game actually begins.
-var gameDpad; //The element with ID "gameDpad". Represents the virtual d-pad used in mobile mode.
+let gameContainer; //The element with ID "gameContainer". The game canvas is appended to this.
+let gameTitlePage; //The element with ID "gameTitlePage". An overlay that displays the title, instructions, etc.
+let gameCanvas; //The HTML5 canvas object (created later)
+let gameContext; //Set to gameCanvas.getContext('2d') later, used for drawing 2D images/shapes.
+let gameInterval = null; //Used to keep track of the game's running state. Set by startGame().
+let gameInitialized = false; //Set to true when startGame() is executed for the first time.
+let gameData = {}; //Filled with things this particular game needs to run.
+let gameScore = 0; //The score that will ultimately be submitted. Modified by the game itself.
+let gameOver = false; //Set to true when the player loses.
+let gameShowingTitleScreen = true; //Set to false when the game actually begins.
+let gameDpad; //The element with ID "gameDpad". Represents the virtual d-pad used in mobile mode.
 
-var DEFAULT_GAME_WIDTH = 720; //Default canvas width in pixels.
-var DEFAULT_GAME_HEIGHT = 720; //Default canvas height in pixels.
-var GAME_WIDTH = DEFAULT_GAME_WIDTH; //Canvas width in pixels.
-var GAME_HEIGHT = DEFAULT_GAME_HEIGHT; //Canvas height in pixels.
-var GAME_FRAMERATE = 10; //Frames per second. gameLoop() is called this many times per second while the game plays.
+const DEFAULT_GAME_WIDTH = 720; //Default canvas width in pixels.
+const DEFAULT_GAME_HEIGHT = 720; //Default canvas height in pixels.
+const GAME_WIDTH = DEFAULT_GAME_WIDTH; //Canvas width in pixels.
+const GAME_HEIGHT = DEFAULT_GAME_HEIGHT; //Canvas height in pixels.
+const GAME_FRAMERATE = 10; //Frames per second. gameLoop() is called this many times per second while the game plays.
 
 //Define input buffers. Used to detect inputs during gameLoop().
-var keysDownArray = [];
-var keysDownNow = [];
-var keysUpNow = [];
+let keysDownArray = [];
+let keysDownNow = [];
+let keysUpNow = [];
 
-var preloadImages =
+let preloadImages =
 {
 	background: 'gameassets/bg.png',
 	body: 'gameassets/body.png',
@@ -46,14 +46,14 @@ var preloadImages =
 	gameover: 'gameassets/gameover.webp'
 };
 
-var initAudioSfx = new Audio('gameassets/silence-initaudio.mp3');
-var gameOverSfx = new Audio('gameassets/gameover.mp3');
-var eatSfx = new Audio('gameassets/eat.mp3');
+const initAudioSfx = new Audio('gameassets/silence-initaudio.mp3');
+const gameOverSfx = new Audio('gameassets/gameover.mp3');
+const eatSfx = new Audio('gameassets/eat.mp3');
 
 
-var preloadedItems = []; //Filled by iteratePreloadCounter().
-var preloadedItemCount = 0; //Iterated by preload().
-var preloaded = false; //Set to true when preload is complete by iteratePreloadCounter().
+let preloadedItems = []; //Filled by iteratePreloadCounter().
+let preloadedItemCount = 0; //Iterated by preload().
+let preloaded = false; //Set to true when preload is complete by iteratePreloadCounter().
 
 function iteratePreloadCounter(item)
 {
@@ -87,13 +87,13 @@ function preload()
 		return;
 	}
 	//Iterate through the preloader assets.
-	for(var key in preloadImages)
+	for(let key in preloadImages)
 	{
 		//Iterate our counter.
 		preloadedItemCount++;
 		
 		//Create a new image object.
-		var image = new Image();
+		let image = new Image();
 		
 		//Set the onload event to call iteratePreloadCounter with this item's path.
 		//The confusing double-function syntax effectively copies preloadImages[key]'s current value (the path).
@@ -124,8 +124,8 @@ function resetGame() {
 	gameData.goodBlock = [];
 	
 	//Set how many tiles make up the field.
-	var playingFieldWidth = 24;
-	var playingFieldHeight = 22;
+	let playingFieldWidth = 24;
+	let playingFieldHeight = 22;
 	
 	//Spawn the snake in the middle of the playing field.
 	
@@ -144,7 +144,7 @@ function resetGame() {
 	gameData.scoreBox.updateScore(gameScore);
 	gameOver = false;
 
-	var bg = preloadImages.background; //Cache so we don't have to access it 3 times per frame.
+	let bg = preloadImages.background; //Cache so we don't have to access it 3 times per frame.
 	gameContext.drawImage(bg, 0, 0, bg.width, bg.height, 0, 0, gameCanvas.width, gameCanvas.height);
 }
 
@@ -159,7 +159,7 @@ function gameLoop()
 	//Draw the background image.
 	//This particular drawImage call stretches the background to match the canvas if they're not the same size.
 	
-	var bg = preloadImages.background; //Cache so we don't have to access it 3 times per frame.
+	let bg = preloadImages.background; //Cache so we don't have to access it 3 times per frame.
 	gameContext.drawImage(bg, 0, 0, bg.width, bg.height, 0, 0, gameCanvas.width, gameCanvas.height);
 	
 	//If we're still on the title screen, do nothing else.
@@ -181,14 +181,14 @@ function gameLoop()
 	}
 	
 	//Cache the field and tile sizes, too, and some other graphics.
-	var verticalOffset = gameCanvas.width / 12; //Prevents the score section from being touched by the game.
-	var playingFieldWidth = gameData.playingFieldWidth;
-	var playingFieldHeight = gameData.playingFieldHeight;
-	var tileWidth = gameCanvas.width / playingFieldWidth;
-	var tileHeight = (gameCanvas.height - verticalOffset) / playingFieldHeight;
-	var body = preloadImages.body;
-	var head = preloadImages.head;
-	var blockred = preloadImages.blockred;
+	let verticalOffset = gameCanvas.width / 12; //Prevents the score section from being touched by the game.
+	let playingFieldWidth = gameData.playingFieldWidth;
+	let playingFieldHeight = gameData.playingFieldHeight;
+	let tileWidth = gameCanvas.width / playingFieldWidth;
+	let tileHeight = (gameCanvas.height - verticalOffset) / playingFieldHeight;
+	let body = preloadImages.body;
+	let head = preloadImages.head;
+	let blockred = preloadImages.blockred;
 	
 	//Set the snake's direction if any input is received.
 	//The direction check is to prevent obvious suicides (going in the opposite direction).
@@ -200,14 +200,14 @@ function gameLoop()
 	//If there's currently no good block, create a random one.
 	if(gameData.goodBlock.length == 0)
 	{
-		var whichBlock;
+		let whichBlock;
 		if(Math.random() >= 0.25) whichBlock = 0;
 		else if(Math.random() < 0.75) whichBlock = 1;
 		else if(Math.random() < 0.75) whichBlock = 2;
 		else whichBlock = 3;
 		
 		//Keep re-rolling until the selected coordinate isn't already occupied by the snake head, tail, or bad blocks.
-		var where = gameData.getRandomUnoccupiedCoordinate();
+		let where = gameData.getRandomUnoccupiedCoordinate();
 		
 		gameData.goodBlock = [where[0], where[1], whichBlock];
 	}
@@ -246,7 +246,7 @@ function gameLoop()
 	else if(gameData.snakeY >= gameData.playingFieldHeight) gameData.snakeY -= gameData.playingFieldHeight;
 	
 	//Draw the good block.
-	var goodBlock;
+	let goodBlock;
 	switch(gameData.goodBlock[2])
 	{
 		case 1:
@@ -269,36 +269,36 @@ function gameLoop()
 	gameContext.drawImage(goodBlock, 0, 0, goodBlock.width, goodBlock.height, gameData.goodBlock[0]*tileWidth, gameData.goodBlock[1]*tileHeight + verticalOffset, tileWidth, tileHeight);
 	
 	//Draw the bad (red) blocks.
-	for(var i = 0, l = gameData.badBlocks.length; i<l; i++)
+	for(let i = 0, l = gameData.badBlocks.length; i<l; i++)
 	{
-		var block = gameData.badBlocks[i];
+		let block = gameData.badBlocks[i];
 		gameContext.drawImage(blockred, 0, 0, blockred.width, blockred.height, block[0]*tileWidth, block[1]*tileHeight + verticalOffset, tileWidth, tileHeight);
 	}
 	
 	//Draw the snake body.
-	var snakeSpriteSize = head.width / 4;
-	for(var i = 0, l = gameData.snakeTail.length; i<l; i++)
+	let snakeSpriteSize = head.width / 4;
+	for(let i = 0, l = gameData.snakeTail.length; i<l; i++)
 	{
-		var segment = gameData.snakeTail[i];
+		let segment = gameData.snakeTail[i];
 		gameContext.drawImage(body, snakeSpriteSize*segment[2], 0, snakeSpriteSize, body.height, segment[0]*tileWidth, segment[1]*tileHeight + verticalOffset, tileWidth, tileHeight);
 	}
 	
 	//Draw the snake head.
-	var snakeHeadWidth = tileWidth*1.5;
-	var snakeHeadHeight = tileHeight*1.5;
+	let snakeHeadWidth = tileWidth*1.5;
+	let snakeHeadHeight = tileHeight*1.5;
 	gameContext.drawImage(head, snakeSpriteSize*gameData.snakeDirection, 0, snakeSpriteSize, head.height, gameData.snakeX*tileWidth - ((snakeHeadWidth-tileWidth)/2), gameData.snakeY*tileHeight + verticalOffset - ((snakeHeadHeight-tileHeight)/2), snakeHeadWidth, snakeHeadHeight);
 	
 	//If the player hit themselves, they lose!
-	for(var i = 0, l = gameData.snakeTail.length; i<l; i++)
+	for(let i = 0, l = gameData.snakeTail.length; i<l; i++)
 	{
-		var segment = gameData.snakeTail[i];
+		let segment = gameData.snakeTail[i];
 		if(segment[0] == gameData.snakeX && segment[1] == gameData.snakeY){gameData.gameOver();return;}
 	}
 	
 	//Same thing with the red blocks!
-	for(var i = 0, l = gameData.badBlocks.length; i<l; i++)
+	for(let i = 0, l = gameData.badBlocks.length; i<l; i++)
 	{
-		var block = gameData.badBlocks[i];
+		let block = gameData.badBlocks[i];
 		if(block[0] == gameData.snakeX && block[1] == gameData.snakeY){gameData.gameOver();return;}
 	}
 	
@@ -391,7 +391,7 @@ function initializeGame()
 	gameTitlePage.style.display = 'block';
 	
 	//Create the score textbox.
-	var scoreBox = document.getElementById('gameScoreBox');
+	let scoreBox = document.getElementById('gameScoreBox');
 	scoreBox.id = 'gameScoreBox';
 	scoreBox.updateScore = function(score){this.innerHTML = 'Score: '+score;};
 	gameContainer.appendChild(scoreBox);
@@ -409,7 +409,7 @@ function initializeGame()
 		if(gameOver) return;
 		gameOver=true;
 		pauseGame();
-		var bg = preloadImages.gameover;
+		let bg = preloadImages.gameover;
 		gameContext.drawImage(bg, 0, 0, bg.width, bg.height, 0, 0, gameCanvas.width, gameCanvas.height);
 		gameOverSfx.play();
 	};
@@ -422,21 +422,21 @@ function initializeGame()
 	{
 		while(true)
 		{
-			var blockX = randomInt(this.playingFieldWidth);
-			var blockY = randomInt(this.playingFieldHeight);
+			let blockX = randomInt(this.playingFieldWidth);
+			let blockY = randomInt(this.playingFieldHeight);
 			if(blockX == this.snakeX && blockY == this.snakeY) continue;
 			if(this.goodBlock.length > 0)
 				if(blockX == this.goodBlock[0] && blockY == this.goodBlock[1]) continue;
-			var reroll = false;
-			for(var i = 0, l = this.badBlocks.length; i<l; i++)
+			let reroll = false;
+			for(let i = 0, l = this.badBlocks.length; i<l; i++)
 			{
-				var block = this.badBlocks[i];
+				let block = this.badBlocks[i];
 				if(blockX == block[0] && blockY == block[1]){reroll=true;break;}
 			}
 			if(reroll) continue;
-			for(var i = 0, l = this.snakeTail.length; i<l; i++)
+			for(let i = 0, l = this.snakeTail.length; i<l; i++)
 			{
-				var segment = this.snakeTail[i];
+				let segment = this.snakeTail[i];
 				if(blockX == segment[0] && blockY == segment[1]){reroll=true;break;}
 			}
 			if(reroll) continue;
@@ -446,18 +446,18 @@ function initializeGame()
 	};
 	
 	//Prerender the head and body rotations.
-	var prerenderFlippedSprite = function(sprite)
+	let prerenderFlippedSprite = function(sprite)
 	{
-		var spriteCanvas = document.createElement('canvas');
+		let spriteCanvas = document.createElement('canvas');
 		spriteCanvas.width = sprite.width * 4;
 		spriteCanvas.height = sprite.height;
-		var spriteContext = spriteCanvas.getContext('2d');
+		let spriteContext = spriteCanvas.getContext('2d');
 		spriteContext.drawImage(sprite, 0, 0);
-		var spriteFlipCanvas = document.createElement('canvas');
+		let spriteFlipCanvas = document.createElement('canvas');
 		spriteFlipCanvas.width = sprite.width;
 		spriteFlipCanvas.height = sprite.height;
-		var spriteFlipContext = spriteFlipCanvas.getContext('2d');
-		for(var i = 1; i < 4; i++)
+		let spriteFlipContext = spriteFlipCanvas.getContext('2d');
+		for(let i = 1; i < 4; i++)
 		{
 			spriteFlipContext.clearRect(0, 0, sprite.width, sprite.height);
 			spriteFlipContext.save();
@@ -493,7 +493,7 @@ function startGame()
 	if(!gameInitialized) initializeGame();
 
 	//Clear the canvas.
-	var bg = preloadImages.background; //Cache so we don't have to access it 3 times per frame.
+	let bg = preloadImages.background; //Cache so we don't have to access it 3 times per frame.
 	gameContext.drawImage(bg, 0, 0, bg.width, bg.height, 0, 0, gameCanvas.width, gameCanvas.height);
 	
 	//Set gameLoop() to run every (1000/GAME_FRAMERATE) milliseconds.
@@ -525,14 +525,30 @@ function arrayRemoveElement(array, element)
 {
 	//Removes element from array if it exists, otherwise does nothing.
 	//Note that this function returns nothing -- it actually modifies the input array.
-	var index = array.indexOf(element);
+	let index = array.indexOf(element);
 	if(index < 0) return;
 	array.splice(index, 1);
+}
+
+function quitAndCloseGame() {
+	resetGame();
+	gameShowingTitleScreen = true;
+	gameTitlePage.style.display = 'block';
+	document.getElementById('gameSection').style.display = 'none';
+	document.getElementById('mainContent').style.display = 'block';
+	window.removeEventListener('keydown', keydown);
+	window.removeEventListener('keyup', keyup);
 }
 
 function keydown(e)
 {
 	//Internal handler for asynchrous keypresses.
+
+	//Special case: Escape key ends the game.
+	if(e.keyCode === 27) {
+		quitAndCloseGame();
+		return false;
+	}
 	
 	if(keysDownArray.indexOf(e.keyCode) < 0)
 	{
@@ -558,15 +574,15 @@ function touchEvent(e) {
 	//Internal handler for touch interaction with the virtual d-pad.
 	e.preventDefault();
 
-	var touches = e.changedTouches;
+	let touches = e.changedTouches;
 
-	var dpadRect = gameDpad.getBoundingClientRect();
+	let dpadRect = gameDpad.getBoundingClientRect();
 
-	for (var i = 0; i < touches.length; i++) {
-	  var trueTouchX = touches[i].clientX - dpadRect.x;
-	  var trueTouchY = touches[i].clientY - dpadRect.y;
-	  var touchRatioX = trueTouchX / dpadRect.width;
-	  var touchRatioY = trueTouchY / dpadRect.height;
+	for (let i = 0; i < touches.length; i++) {
+	  let trueTouchX = touches[i].clientX - dpadRect.x;
+	  let trueTouchY = touches[i].clientY - dpadRect.y;
+	  let touchRatioX = trueTouchX / dpadRect.width;
+	  let touchRatioY = trueTouchY / dpadRect.height;
 	  if(touchRatioX < 0.30 && (touchRatioY > 0.30 && touchRatioY < 0.70)) {
 		//Left press
 		keysDownArray.push(37);
@@ -608,7 +624,7 @@ function autoResize() {
 	if(mobileMode) {
 		gameDpad.style.display = 'inline-block';
 		if(winWidth < winHeight) {
-			var scaleFactor = (winWidth/DEFAULT_GAME_WIDTH);
+			let scaleFactor = (winWidth/DEFAULT_GAME_WIDTH);
 			gameContainer.style.transformOrigin = 'top left';
 			gameContainer.style.left = gameContainer.style.top = '0';
 			gameContainer.style.right = 'auto';
@@ -618,7 +634,7 @@ function autoResize() {
 			gameDpad.style.left = '50%';
 			gameDpad.style.transform = 'translateX(-50%) scale('+scaleFactor+')';
 		}else {
-			var scaleFactor = (winHeight/DEFAULT_GAME_WIDTH);
+			let scaleFactor = (winHeight/DEFAULT_GAME_WIDTH);
 			gameContainer.style.transformOrigin = 'top right';
 			gameContainer.style.top = '0';
 			gameContainer.style.left = 'auto';
@@ -647,12 +663,4 @@ document.getElementById('gameStartBtn').addEventListener('click', function() {
 	window.addEventListener('keyup', keyup);
 });
 
-document.getElementById('gameExitBtn').addEventListener('click', function() {
-	resetGame();
-	gameShowingTitleScreen = true;
-	gameTitlePage.style.display = 'block';
-	document.getElementById('gameSection').style.display = 'none';
-	document.getElementById('mainContent').style.display = 'block';
-	window.removeEventListener('keydown', keydown);
-	window.removeEventListener('keyup', keyup);
-});
+document.getElementById('gameExitBtn').addEventListener('click', quitAndCloseGame);
