@@ -51,7 +51,7 @@ export default function Home() {
             Hello! My name is Flonne Reverie. I&apos;m a computer programmer and full-stack web developer with 8+ years of experience!
           </p>
           <p>
-            <a className={styles.cvLink} href="/files/flonne-reverie-resume-2025-rev3.pdf" target="_blank">Check out my CV!</a>
+            <a className={styles.cvLink} href="/files/flonne-reverie-resume-2025-rev4.pdf" target="_blank">Check out my CV!</a>
           </p>
           <p className={styles.currentStatus}>
               Currently seeking hybrid/remote roles from Porto, Portugal! 🇵🇹 (Already a legal resident!)
