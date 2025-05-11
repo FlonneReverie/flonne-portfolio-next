@@ -9,18 +9,35 @@
     animation-direction: reverse;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .demoAnimation {
-      transition: none !important;
-    }
+  .demoAnimation.reducedMotion {
+    transition: none !important;
+    animation-play-state: paused;
+  }
+
+  .demoAnimation.reducedMotion p {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--background);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    line-height: 150px;
+    margin: 0;
   }
 
   .demoDarkMode {
     background-image: url(/animbg-dark.webp);
   }
+
+  .demoAnimation.reducedMotion.demoDarkMode p {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: var(--foreground);
+  }
   
   .page.hired .demoAnimation {
-    animation-play-state: paused;
+    animation-play-state: paused !important;
   }
   
   @keyframes animDemoBg {
@@ -233,6 +250,10 @@
     animation-name: bunnyNom;
     animation-duration: 0.3s;
     right: calc(50% - 45px);
+  }
+
+  .demoAnimation.reducedMotion h3 > * {
+    animation-play-state: paused !important;
   }
 
   @media screen and (max-width: 768px) {

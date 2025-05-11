@@ -15,11 +15,11 @@ import Game from "./game";
 
 export default function Home() {
 
-  const {isDarkTheme, setIsDarkTheme} = useTheme();
+  const {isDarkTheme} = useTheme();
 
   return (
     <div className={`${styles.page} ${isDarkTheme ? styles.darkMode : ''}`}>
-      <ThemeToggleButton isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme} />
+      <ThemeToggleButton />
       <div id="mainContent">
         <main className={styles.main}>
           <a href="https://github.com/FlonneReverie/flonne-portfolio-next" className={styles.githubSection} target="_blank">
@@ -60,11 +60,11 @@ export default function Home() {
           <p className={styles.outro}>
               Please allow me to demonstrate a little bit of what I can do:
           </p>
-          <CardAnimation isDarkTheme={isDarkTheme} />
-          <CardSnakeGame isDarkTheme={isDarkTheme} />
+          <CardAnimation />
+          <CardSnakeGame />
           <CardBackend />
-          <CardEyeCandy />
-          <CardAccessibility isDarkTheme={isDarkTheme} />
+          <CardEyeCandy  />
+          <CardAccessibility />
         </main>
         <footer className={styles.footer}>
           Made using{" "}

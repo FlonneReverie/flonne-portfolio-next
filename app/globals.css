@@ -45,11 +45,9 @@ a:hover, a:focus {
   color: var(--linkHover);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body {
-    transition: none !important;
-  }
-  a {
-    transition: none !important;
-  }
+.reducedMotion body {
+  transition: none !important;
+}
+.reducedMotion a {
+  transition: none !important;
 }

@@ -2,13 +2,13 @@ import Image from "next/image";
 import styles from "./CardSnakeGame.module.css";
 
 import Card from '../card';
+import { useTheme } from "../context/ThemeContext";
 
 
-export default function CardSnakeGame({
-  isDarkTheme
-  }: {
-    isDarkTheme: boolean;
-  }) {
+export default function CardSnakeGame() {
+
+  const {isDarkTheme} = useTheme();
+
   return (
     <Card>
         <h3>Advanced Javascript and Interactivity</h3>

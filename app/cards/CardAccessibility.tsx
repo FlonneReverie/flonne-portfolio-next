@@ -2,13 +2,13 @@ import Image from "next/image";
 import styles from "./CardAccessibility.module.css";
 
 import Card from '../card';
+import { useTheme } from "../context/ThemeContext";
 
 
-export default function CardAccessibility({
-  isDarkTheme
-  }: {
-    isDarkTheme: boolean;
-  }) {
+export default function CardAccessibility() {
+
+  const {isDarkTheme} = useTheme();
+
   return (
     <Card>
         <h3>Accessibility / ARIA</h3>

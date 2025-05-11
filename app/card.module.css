@@ -24,10 +24,8 @@
     padding: 0 60px 8px 60px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .card h3 {
-        transition: none !important;
-    }
+.card.reducedMotion h3 {
+    transition: none !important;
 }
 
 

@@ -1,22 +1,19 @@
 
 /* Adapted from https://toggles.dev/classic */
 
+import { useTheme } from "./context/ThemeContext";
 import styles from "./ThemeToggleButton.module.css";
 
-export default function ThemeToggleButton({
-  isDarkTheme,
-  setIsDarkTheme
-  }: {
-    isDarkTheme: boolean;
-    setIsDarkTheme: (isDark: boolean) => void;
-  }) {
+export default function ThemeToggleButton() {
+
+  const {isDarkTheme, setIsDarkTheme, isReducedMotion} = useTheme();
 
   function toggleTheme() : void {
     setIsDarkTheme(!isDarkTheme);
   }
 
   return (
-    <div className={styles.themeToggleContainer}>
+    <div className={`${styles.themeToggleContainer} ${isReducedMotion ? styles.reducedMotion : ''}`}>
       <label
         tabIndex={0}
         className={styles.themeToggle}
