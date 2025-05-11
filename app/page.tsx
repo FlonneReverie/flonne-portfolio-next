@@ -15,7 +15,7 @@ import Game from "./game";
 
 export default function Home() {
 
-  const {isDarkTheme} = useTheme();
+  const {isDarkTheme, isHired} = useTheme();
 
   return (
     <div className={`${styles.page} ${isDarkTheme ? styles.darkMode : ''}`}>
@@ -85,7 +85,10 @@ export default function Home() {
               title="Next.js"
             />
           </a>
-          <p>(The bunny gets the carrot if you hire me~)</p>
+          {isHired
+            ? <p>(I've been hired! The bunny got the carrot.)</p>
+            : <p>(The bunny gets the carrot if you hire me~)</p>
+          }
         </footer>
       </div>
       <Game />

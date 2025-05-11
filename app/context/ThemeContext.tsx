@@ -6,6 +6,7 @@ interface ThemeContextType {
   isDarkTheme: boolean;
   setIsDarkTheme: (isDark: boolean) => void;
   isReducedMotion: boolean;
+  isHired: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,6 +15,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   const [isDarkTheme, setIsDarkThemeInternal] = useState(false);
   const [isReducedMotion, setIsReducedMotionInternal] = useState(true);
+
+  /* -------------------------------- */
+  const isHired = false; // Please~?
+  /* -------------------------------- */
 
   function setIsDarkTheme(isDark : boolean) : void {
     setIsDarkThemeInternal(isDark);
@@ -36,7 +41,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme, isReducedMotion }}>
+    <ThemeContext.Provider value={{ isDarkTheme, setIsDarkTheme, isReducedMotion, isHired }}>
       {children}
     </ThemeContext.Provider>
   );

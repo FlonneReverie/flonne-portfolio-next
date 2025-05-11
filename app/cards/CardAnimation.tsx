@@ -7,12 +7,10 @@ import { useTheme } from "../context/ThemeContext";
 
 export default function CardAnimation() {
 
-  const {isDarkTheme, isReducedMotion} = useTheme();
-
-  const hired = false; // Please~?
+  const {isDarkTheme, isReducedMotion, isHired} = useTheme();
 
   return (
-    <Card className={`${styles.demoAnimation} ${isDarkTheme ? styles.demoDarkMode : ''} ${isReducedMotion ? styles.reducedMotion : ''} ${hired ? styles.hired : ''}`}>
+    <Card className={`${styles.demoAnimation} ${isDarkTheme ? styles.demoDarkMode : ''} ${isReducedMotion ? styles.reducedMotion : ''} ${isHired ? styles.hired : ''}`}>
         <h3>
             <span className={styles.demoAnimationText1}>CSS</span>
             {" "}
