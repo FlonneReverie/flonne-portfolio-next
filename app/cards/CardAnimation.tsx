@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Image from "next/image";
 import styles from "./CardAnimation.module.css";
 
@@ -9,8 +11,12 @@ export default function CardAnimation() {
 
   const {isDarkTheme, isReducedMotion, isHired} = useTheme();
 
+  const [manuallyAllowMotion, setManuallyAllowMotion] = useState(false);
+
+  const reducedMotionMode = isReducedMotion && !manuallyAllowMotion;
+
   return (
-    <Card className={`${styles.demoAnimation} ${isDarkTheme ? styles.demoDarkMode : ''} ${isReducedMotion ? styles.reducedMotion : ''} ${isHired ? styles.hired : ''}`}>
+    <Card className={`${styles.demoAnimation} ${isDarkTheme ? styles.demoDarkMode : ''} ${reducedMotionMode ? styles.reducedMotion : ''} ${isHired ? styles.hired : ''}`}>
         <h3>
             <span className={styles.demoAnimationText1}>CSS</span>
             {" "}
@@ -26,8 +32,21 @@ export default function CardAnimation() {
             <span className={styles.demoAnimationText2}>Animations</span>
             <div className={styles.demoAnimationBunny}></div>
         </h3>
-        {isReducedMotion
-          ? <p>Your browser requested reduced motion, so the bunny will relax for now.</p>
+        {reducedMotionMode
+          ? <p>
+              Your browser requested reduced motion, so the bunny is relaxing for now.
+              {" "}
+              <a
+                href="#"
+                title="Click to play animation demo"
+                aria-label="Click to play animation demo"
+                onClick={(evt) => {
+                  setManuallyAllowMotion(true);
+                  evt.preventDefault();
+                  return false;
+                }}
+              >Click to play!</a>
+            </p>
           : null
         }
     </Card>
