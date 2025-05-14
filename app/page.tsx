@@ -86,7 +86,7 @@ export default function Home() {
             />
           </a>
           {isHired
-            ? <p>(I've been hired! The bunny got the carrot.)</p>
+            ? <p>(I&apos;ve been hired! The bunny got the carrot.)</p>
             : <p>(The bunny gets the carrot if you hire me~)</p>
           }
         </footer>
