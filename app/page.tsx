@@ -62,7 +62,7 @@ export default function Home() {
           <p>
             <a
               className={styles.cvLink}
-              href="/files/flonne-reverie-cv-2025-v2.pdf"
+              href="/files/flonne-reverie-cv-2025-v3.pdf"
               target="_blank"
               aria-label="View my CV in a new tab"
             >
