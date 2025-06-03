@@ -1,29 +1,29 @@
-
 /* Adapted from https://toggles.dev/classic */
 
 import { useTheme } from "./context/ThemeContext";
 import styles from "./ThemeToggleButton.module.css";
 
 export default function ThemeToggleButton() {
+  const { isDarkTheme, setIsDarkTheme, isReducedMotion } = useTheme();
 
-  const {isDarkTheme, setIsDarkTheme, isReducedMotion} = useTheme();
-
-  function toggleTheme() : void {
+  function toggleTheme(): void {
     setIsDarkTheme(!isDarkTheme);
   }
 
   return (
-    <div className={`${styles.themeToggleContainer} ${isReducedMotion ? styles.reducedMotion : ''}`}>
+    <div
+      className={`${styles.themeToggleContainer} ${isReducedMotion ? styles.reducedMotion : ""}`}
+    >
       <label
         tabIndex={0}
         className={styles.themeToggle}
-        title={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
-        aria-label={`Switch to ${isDarkTheme ? 'light' : 'dark'} theme`}
+        title={`Switch to ${isDarkTheme ? "light" : "dark"} theme`}
+        aria-label={`Switch to ${isDarkTheme ? "light" : "dark"} theme`}
         aria-checked={!isDarkTheme}
         role="switch"
         onClick={toggleTheme}
         onKeyDown={(evt) => {
-          if(evt.key === 'Enter' || evt.key === ' ') {
+          if (evt.key === "Enter" || evt.key === " ") {
             toggleTheme();
             evt.preventDefault();
             return false;
@@ -31,7 +31,12 @@ export default function ThemeToggleButton() {
           return true;
         }}
       >
-        <input type="checkbox" aria-hidden="true" checked={isDarkTheme} disabled />
+        <input
+          type="checkbox"
+          aria-hidden="true"
+          checked={isDarkTheme}
+          disabled
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
